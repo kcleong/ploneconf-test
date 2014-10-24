@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+[supervisor]
+programs +=
+...
+{% if varnish %}
+   60 varnish ${buildout:directory}/bin/varnish true
+{% endif %}
+
+{% if varnish %}
+[varnish]
+port = {{ varnish.port }}
+{% endif %}
